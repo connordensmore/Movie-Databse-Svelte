@@ -3,7 +3,7 @@
 </script>
     
 <div class="movie-card">
-    <a href={'/movie/' + movie.id}>
+    <a sveltekit:prefetch sveltekit:noscroll href={'/movie/' + movie.id}>
     <img src={'https://image.tmdb.org/t/p/w500' + movie.poster_path} alt="" />
     </a>
     <div class="description">
@@ -16,7 +16,7 @@
 <style>
     img {
         width: 100%;
-        height: 40vh;
+        height: 35vh;
         object-fit: cover;
         border-radius: 1rem;
         margin-bottom: 1rem;
@@ -25,7 +25,7 @@
         font-size: 1.5rem;
     }
     .description {
-        height: 10vh;
+        height: 7vh;
     }
     p{
         font-size: 1rem;

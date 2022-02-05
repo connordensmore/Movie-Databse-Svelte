@@ -1,10 +1,11 @@
 <script context="module">
     import { set_now } from "svelte/internal";
+    import {fly} from 'svelte/transition'
     
     
         export async function load({fetch, params}) {
             const res = await fetch(
-                ` https://api.themoviedb.org/3/movie/${params.id}?api_key=26c997e52224acc512b6eab806cf31ad&language=en-US`
+                ` https://api.themoviedb.org/3/movie/${params.id}?api_key=${import.meta.env.VITE_API}&language=en-US`
                 );
             const movieDetail = await res.json();
             if (res.ok) {
@@ -20,7 +21,7 @@
 </script>
 
 
-<div class="movie-details">
+<div class="movie-details" in:fly={{y: 50, duration: 500, delay: 500}} out:fly={{duration: 500}}>
     <div class="img-container">
         <img src={'https://image.tmdb.org/t/p/original' + movieDetail.backdrop_path} alt={movieDetail.title} />
     </div>

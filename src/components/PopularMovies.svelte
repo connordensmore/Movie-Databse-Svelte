@@ -14,6 +14,7 @@
 
 <style>
     h3 {
+        font-size: 2rem;
         padding: 0 1rem;
     }
     .popular-movies {
